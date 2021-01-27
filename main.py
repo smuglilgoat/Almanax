@@ -5,6 +5,8 @@ import os
 import datetime
 import json
 
+from keep_alive import keep_alive
+
 client = commands.Bot(command_prefix = '$')
 with open('almanax.json') as f:
   almanax = json.load(f)
@@ -36,4 +38,5 @@ async def day(ctx):
     inline=False)
   await ctx.send(embed=embed)
 
+keep_alive()
 client.run(os.getenv('TOKEN'))
